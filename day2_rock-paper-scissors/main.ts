@@ -117,10 +117,10 @@ const myPlayLookupPartTwo = (
 
 const calculatePartTwoRound = (roundString: string) => {
   // split the round string into an array of characters
-  const [elfChar, myChar] = roundString.split(" ");
+  const [elfChar, outcomeChar] = roundString.split(" ");
 
   const elfPlay = elfPlayLookup(elfChar);
-  const myPlay = myPlayLookupPartTwo(elfPlay, myChar);
+  const myPlay = myPlayLookupPartTwo(elfPlay, outcomeChar);
 
   return {
     elfPlay,
@@ -134,9 +134,9 @@ const calculatePartTwoRound = (roundString: string) => {
 /******************************************************************* */
 
 const main = async () => {
-  const rounds = strategyGuideString.split("\n");
+  const roundsArray = strategyGuideString.split("\n");
 
-  const roundOneOutcomes = rounds.map((round, index) => {
+  const roundOneOutcomes = roundsArray.map((round, index) => {
     const roundObject = calculatePartOneRound(round);
     return { ...roundObject, round: index + 1 };
   });
@@ -146,7 +146,7 @@ const main = async () => {
     roundOneOutcomes.reduce((acc, curr) => acc + curr.totalScore, 0)
   );
 
-  const roundTwoOutcomes = rounds.map((round, index) => {
+  const roundTwoOutcomes = roundsArray.map((round, index) => {
     const roundObject = calculatePartTwoRound(round);
     return { ...roundObject, round: index + 1 };
   });
