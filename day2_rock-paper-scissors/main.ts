@@ -5,8 +5,8 @@ export {};
 /******************************************************************* */
 // Part One Logic!
 /******************************************************************* */
-const elfPlayLookup = (elfPlay: string) => {
-  switch (elfPlay) {
+const elfPlayLookup = (elfPlayChar: string) => {
+  switch (elfPlayChar) {
     case "A":
       return "rock" as const;
     case "B":
@@ -18,8 +18,8 @@ const elfPlayLookup = (elfPlay: string) => {
   }
 };
 
-const myPlayLookupPartOne = (myPlay: string) => {
-  switch (myPlay) {
+const myPlayLookupPartOne = (myPlayChar: string) => {
+  switch (myPlayChar) {
     case "X":
       return "rock" as const;
     case "Y":
@@ -80,15 +80,15 @@ const calculatePartOneRound = (roundString: string) => {
 /******************************************************************* */
 const myPlayLookupPartTwo = (
   elfPlay: "rock" | "paper" | "scissors",
-  outComeChar: string
+  outcomeChar: string
 ) => {
   // Should draw
-  if (outComeChar === "Y") {
+  if (outcomeChar === "Y") {
     return elfPlay;
   }
 
   // Should win
-  if (outComeChar === "Z") {
+  if (outcomeChar === "Z") {
     if (elfPlay === "rock") {
       return "paper";
     }
@@ -100,7 +100,7 @@ const myPlayLookupPartTwo = (
     }
   }
   // Should lose
-  if (outComeChar === "X") {
+  if (outcomeChar === "X") {
     if (elfPlay === "rock") {
       return "scissors";
     }
