@@ -4,8 +4,10 @@ import { rucksackContentString } from "./rucksackContentString";
 const calculateCharacterPriority = (character: string) => {
   const characterCode = character.charCodeAt(0);
   if (characterCode >= 65 && characterCode <= 90) {
+    // A-Z
     return characterCode - 65 + 27;
   } else if (characterCode >= 97 && characterCode <= 122) {
+    // a-z
     return characterCode - 97 + 1;
   } else {
     throw new Error("Invalid character Found!");
